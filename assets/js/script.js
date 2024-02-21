@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  console.log("Hey, you clicked the button!");
+  // console.log("Hey, you clicked the button!");
 
   // Prompt the user for the password length
   var length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
@@ -21,28 +21,34 @@ function generatePassword() {
 
   // Characters pool based on user's preferences
   var characters = "";
+
+  // Concatenate lowercase letters if requested
   if (includeLowercase) {
-    // Include lowercase letters
-    characters += "abcdefghijklmnopqrstuvwxyz";
+    characters = characters.concat("abcdefghijklmnopqrstuvwxyz");
   }
+
+  // Concatenate uppercase letters if requested
   if (includeUppercase) {
-    // Include uppercase letters
-    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    characters = characters.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
   }
+
+  // Concatenate numbers if requested
   if (includeNumbers) {
-    // Include numbers
-    characters += "0123456789";
+    characters = characters.concat("0123456789");
   }
+
+  // Concatenate special characters if requested
   if (includeSpecialCharacters) {
-    // Include special characters
-    characters += "!@#$%^&*()-_=+[]{}|;:,.<>?";
+    characters = characters.concat("!@#$%^&*()-_=+[]{}|;:,.<>?");
   }
 
   // Generate password
   var password = "";
   for (var i = 0; i < length; i++) {
     // Randomly select characters from the characters pool to construct the password
-    password += characters.charAt(Math.floor(Math.random() * characters.length));
+    var randomIndex = Math.floor(Math.random() * characters.length);
+    var selectedCharacter = characters.charAt(randomIndex);
+    password = password.concat(selectedCharacter);
   }
 
   return password;
