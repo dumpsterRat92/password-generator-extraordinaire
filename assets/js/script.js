@@ -1,65 +1,62 @@
-// Assignment code here
-// // Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function generatePassword() {
+  console.log("Hey, you clicked the button!");
 
-//   passwordText.value = password;
+  // Prompt the user for the password length
+  var length = parseInt(prompt("Enter the length of the password (between 8 and 128 characters):"));
 
-// }
+  // Validate the input
+  if (isNaN(length) || length < 8 || length > 128) {
+    // If the input is invalid, prompt the user again until a valid input is provided
+    length = parseInt(prompt("Invalid length! Please enter a number between 8 and 128:"));
+  }
 
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+  // Prompt the user for including lowercase, uppercase, numbers, and special characters
+  var includeLowercase = confirm("Do you want to include lowercase letters?");
+  var includeUppercase = confirm("Do you want to include uppercase letters?");
+  var includeNumbers = confirm("Do you want to include numbers?");
+  var includeSpecialCharacters = confirm("Do you want to include special characters?");
 
-// function generatePassword() {
-// var minNum = 8
-// var maxNum = 128
-// var lettersBig = ['A', 'B','C','D', 'E', 'F', 'G', 'H', 'I', 'K', 'L' ,'M', 'N', 'O','P','Q', 'R','S','T','U','V','W','X','Y','Z'];
-// var letterSmall = ['a', 'b', 'c', 'd','e', 'f','g','h','i','j','k','l','m','n','o','p','q','r','r','s','t','u','v','w','x','y','z'];
-// var passwordSize = NaN;
-// var numbers = math.random*10;
-// var passwordSize = NaN;
-// var useBig, useSmall, useChars, useNums = false;
-// var C
-// }
+  // Characters pool based on user's preferences
+  var characters = "";
+  if (includeLowercase) {
+    // Include lowercase letters
+    characters += "abcdefghijklmnopqrstuvwxyz";
+  }
+  if (includeUppercase) {
+    // Include uppercase letters
+    characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  }
+  if (includeNumbers) {
+    // Include numbers
+    characters += "0123456789";
+  }
+  if (includeSpecialCharacters) {
+    // Include special characters
+    characters += "!@#$%^&*()-_=+[]{}|;:,.<>?";
+  }
 
-// do {
-//    lettersBig = confirm("")
-// }
+  // Generate password
+  var password = "";
+  for (var i = 0; i < length; i++) {
+    // Randomly select characters from the characters pool to construct the password
+    password += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
 
-// const passwordBox = document.getElementById("password");
-// const length = 12;
+  return password;
+}
 
-// const upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-// const lowerCase = "abcdefghijklmnopqrstuvwxyz";
-// const number = "0123456789";
-// const symbol = "@#$%^&*()_-=+~><{}[]/";
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-// const allChars = upperCase + lowerCase + number + symbol;
+  passwordText.value = password;
 
-// function createPassword(){
-//   let password = "";
-//   password += upperCase[Math.floor(Math.random() * upperCase.length)];
-//   password += lowerCase[Math.floor(Math.random() * lowerCase.length)];
-//   password += number[Math.floor(Math.random() * number.length)];
-//   password += symbol[Math.floor(Math.random() * symbol.length)];
+}
 
-//   while(length > password.length){
-//     password += allChars[Math.floor(Math.random() * allChars.length)];
-//   }
-//   passwordBox.value = password;
-// }
-
-// const btnEl = document.querySelector(".btn")
-//  btnEl.addEventListener("click", ()=>{
-//   createPassword()
-//  })
-
-//  let password = ""
-//  for (let index = 0; index < length; index++) {
-//    const randomNum = Math.floor(Math.random() * allChars.length)
-//  }
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
