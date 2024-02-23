@@ -6,6 +6,7 @@ A simple and secure password generator tool to help you create strong and random
 - [Description](#description)
 - [Features](#features)
 - [Links](#Links)
+- [Screenshot](#Screenshot)
 - [License](#license)
 
 ## Description
@@ -28,6 +29,10 @@ In today's digital age, having strong and unique passwords is crucial for online
 
 2. Or Find the repository here: 
 https://github.com/dumpsterRat92/password-generator-extraordinaire
+
+## Screenshot 
+
+![screencapture-dumpsterrat92-github-io-password-generator-extraordinaire-2024-02-22-22_10_29](https://github.com/dumpsterRat92/password-generator-extraordinaire/assets/153157275/fa8c2327-fcf7-4f4b-b408-a7733bc0cd1f)
 
 ## License 
 
